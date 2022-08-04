@@ -36,14 +36,45 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w50-Zu-0po">
+                                <rect key="frame" x="285" y="577" width="60" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Gsi-KI-NdS"/>
+                                    <constraint firstAttribute="width" constant="60" id="Qg7-NR-NRO"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="10" height="10"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="＋">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="36"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowIBColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="3" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GoA-qe-1Qe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4os-ip-GiB" firstAttribute="trailing" secondItem="GoA-qe-1Qe" secondAttribute="trailing" id="VY5-hZ-eNJ"/>
                             <constraint firstItem="4os-ip-GiB" firstAttribute="top" secondItem="GoA-qe-1Qe" secondAttribute="top" id="Zz3-Ct-lZQ"/>
+                            <constraint firstItem="GoA-qe-1Qe" firstAttribute="trailing" secondItem="w50-Zu-0po" secondAttribute="trailing" constant="30" id="cx9-PL-IIL"/>
                             <constraint firstItem="4os-ip-GiB" firstAttribute="leading" secondItem="GoA-qe-1Qe" secondAttribute="leading" id="jhr-cu-NzN"/>
                             <constraint firstItem="4os-ip-GiB" firstAttribute="bottom" secondItem="GoA-qe-1Qe" secondAttribute="bottom" id="mdC-Yd-flI"/>
+                            <constraint firstItem="GoA-qe-1Qe" firstAttribute="bottom" secondItem="w50-Zu-0po" secondAttribute="bottom" constant="30" id="uPT-C8-etN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lG3-xL-o8s"/>
@@ -55,10 +86,28 @@
             </objects>
             <point key="canvasLocation" x="903.20000000000005" y="116.49175412293854"/>
         </scene>
+        <!--Tweet View Controller-->
+        <scene sceneID="XTv-vo-FQ7">
+            <objects>
+                <viewController storyboardIdentifier="TweetViewController" id="T9M-BW-la3" customClass="TweetViewController" customModule="TwitterSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2S5-qH-GrN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6G6-eV-3eA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RE8-6Y-9G7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="116"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

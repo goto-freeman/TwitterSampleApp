@@ -10,14 +10,9 @@ import Foundation
 
 struct TweetDataModel {
     var userName: String
+    var date: String    // 一旦文字列で
     var tweet: String
-    
 }
-
-
-
-
-
 
 
 
