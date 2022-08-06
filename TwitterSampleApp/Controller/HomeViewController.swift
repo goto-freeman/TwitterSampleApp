@@ -11,7 +11,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBAction func addTweetButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tweetViewController = storyboard.instantiateViewController(identifier: "TweetViewController")
+
+        navigationController?.pushViewController(tweetViewController, animated: true)
+//        tweetViewController.tweetButton.setTitle("編集する", for: .normal)
+    }
+
     var tweetDataList: [TweetDataModel] = []
     
     override func viewDidLoad() {
@@ -20,7 +27,11 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "TweetTableViewCell")
         tableView.tableFooterView = UIView()
         setTweetData()
-
+    }
+    
+    // NavigationCotrollerのNavigationBarをhidden(隠す)
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     var dateFormatter: DateFormatter {
@@ -28,7 +39,7 @@ class HomeViewController: UIViewController {
         dateFormat.locale = Locale(identifier: "ja_JP")
         dateFormat.timeZone = .current
         dateFormat.dateStyle = .long
-        dateFormat.timeStyle = .none
+        dateFormat.timeStyle = .short
         return dateFormat
     }
     
@@ -39,7 +50,7 @@ class HomeViewController: UIViewController {
             tweetDataList.append(tweetDataModel)
         }
         // 5ツイート目
-        let tweetDataModel = TweetDataModel(userName: "ごとう", date: dateFormatter.string(from: Date()), tweet: "ああああああああああああああああいうえおかきくけこさしすせそたちつてと\nああああああああああああああああ\nああああああああああああああああ\nああああああああああああああああ\nなにぬねのはひふへほまみむめもやゆよらりるれろわおん")
+        let tweetDataModel = TweetDataModel(userName: "ごとう", date: dateFormatter.string(from: Date()), tweet: "ああああああああああああああああいうえおかきくけこさしすせそたちつてと\nああああああああああああああああ\nああああああああああああああああ\nああああああああああああああああ\nああああああああああああああああ\nああああああああああああああああ\nなにぬねのはひふへほまみむめもやゆよらりるれろわおん")
         tweetDataList.append(tweetDataModel)
         
     }
@@ -67,15 +78,27 @@ extension HomeViewController: UITableViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // storyboard定数のinstantiateViewControllerメソッドを使って「TweetViewController」をインスタンス化する。
         let tweetViewController = storyboard.instantiateViewController(identifier: "TweetViewController") as! TweetViewController
+        
+        // TableViewCellからツイート画面に遷移した際にツイートデータを渡す処理
+        let tweetData = tweetDataList[indexPath.row]
+        tweetViewController.configure(tweetData: tweetData)
+        
         // タップ後のセルの選択状態を解錠する
         tableView.deselectRow(at: indexPath, animated: true)
+        
         // navigationControllerのpushViewcontrollerというメソッドを使って画面遷移処理を定義
         navigationController?.pushViewController(tweetViewController, animated: true)
+//        tweetViewController.tweetButton.setTitle("編集する", for: .normal)
     }
 }
+        
+
+        
+        
+
 
 
 
 // 動画で復習しながらViewを作り上げていってる。
 // 次はツイート画面作成
-// 次はChapter8・Step9・メモ詳細画面にメモの内容を表示させる
+// 次はChapter8・Step9・メモ詳細画面にメモの内容を表示させる（2:40）ｚ
