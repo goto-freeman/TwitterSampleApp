@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+// TableViewCellをxibファイルのカスタムセルで表すための処理
 class TweetTableViewCell: UITableViewCell {
     
     @IBOutlet var userName: UILabel!
@@ -15,7 +17,6 @@ class TweetTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func setCell(tweetDataModel: TweetDataModel) {
@@ -26,8 +27,6 @@ class TweetTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

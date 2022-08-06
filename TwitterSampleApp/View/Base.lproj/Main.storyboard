@@ -33,12 +33,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4os-ip-GiB">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="89" width="375" height="578"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w50-Zu-0po">
                                 <rect key="frame" x="285" y="577" width="60" height="60"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="backgroundColor" red="0.117522724" green="0.63262903690000005" blue="0.9500532746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Gsi-KI-NdS"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Qg7-NR-NRO"/>
@@ -68,12 +68,16 @@
                                     <action selector="addTweetButton:" destination="TeF-Cv-Oeo" eventType="touchUpInside" id="9oO-vN-Kj3"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bird" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-2x-Du8">
+                                <rect key="frame" x="154" y="11" width="67" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GoA-qe-1Qe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4os-ip-GiB" firstAttribute="trailing" secondItem="GoA-qe-1Qe" secondAttribute="trailing" id="VY5-hZ-eNJ"/>
-                            <constraint firstItem="4os-ip-GiB" firstAttribute="top" secondItem="GoA-qe-1Qe" secondAttribute="top" id="Zz3-Ct-lZQ"/>
+                            <constraint firstItem="4os-ip-GiB" firstAttribute="top" secondItem="GoA-qe-1Qe" secondAttribute="top" constant="45" id="Zz3-Ct-lZQ"/>
                             <constraint firstItem="w50-Zu-0po" firstAttribute="trailing" secondItem="GoA-qe-1Qe" secondAttribute="trailing" constant="-30" id="cx9-PL-IIL"/>
                             <constraint firstItem="4os-ip-GiB" firstAttribute="leading" secondItem="GoA-qe-1Qe" secondAttribute="leading" id="jhr-cu-NzN"/>
                             <constraint firstItem="4os-ip-GiB" firstAttribute="bottom" secondItem="GoA-qe-1Qe" secondAttribute="bottom" id="mdC-Yd-flI"/>
@@ -115,13 +119,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71F-SY-ANL">
                                 <rect key="frame" x="215" y="20" width="140" height="36"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="backgroundColor" red="0.117522724" green="0.63262903690000005" blue="0.9500532746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="Ufm-CD-kFY"/>
                                     <constraint firstAttribute="height" constant="36" id="ja4-TV-8Ie"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="ツイートする" titleAlignment="center">
+                                <buttonConfiguration key="configuration" style="plain" title="編集する" titleAlignment="center">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
@@ -230,14 +234,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bird" width="200" height="200"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

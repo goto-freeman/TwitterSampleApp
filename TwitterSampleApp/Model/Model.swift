@@ -6,29 +6,27 @@
 //
 
 import Foundation
+import RealmSwift
 
 
-struct TweetDataModel {
-    var userName: String
-    var date: String    // 一旦文字列で
-    var tweet: String
+// ツイートデータのモデルを設定。realmを使うときは以下が必要
+// classであること
+// Object型であること
+// プロパティの定義に「@objc dynamic」キーワードがついていること
+class TweetDataModel: Object {
+    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var userName: String = ""
+    @objc dynamic var date: String = ""
+    @objc dynamic var tweet: String = ""
+    
+    // オーバーライドし、プライマリキーにしたい変数名を返すメソッド
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// ツイートモデルのようなものを作らないといけないと思うが、
-// ツイートを保存するためにはRealmが必要だと思う。
-// Realmをモデルに導入する方法は、Chpater8・Step13の動画の50秒あたりから解説してある。
-
+// やること
+// ワイヤーフレームを実物に合わせる。左スライドの編集とか。
+// 要件を現実に合わせる。
 
