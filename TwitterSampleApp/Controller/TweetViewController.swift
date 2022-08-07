@@ -62,7 +62,7 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         UserNameViewDidChange()
         tweetViewDidChange()
         // tweetViewの文字数が140文字以下か検証するメソッドを呼び出す
-        let isLessThanOrEqual = checkTheNumberOfCharacters(tweet: tweetView.text)
+        let isLessThanOrEqual = validation(tweet: tweetView.text)
         // tweetViewの文字数をtextCountLabelに表示し、140文字をしきい値にして文字の色を変更するメソッドを呼び出す
         displayTextCountLabel(tweetable: isLessThanOrEqual)
         
@@ -77,7 +77,7 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         UserNameViewDidChange()
         tweetViewDidChange()
         // tweetViewの文字数が140文字以下か検証するメソッドを呼び出す
-        let isLessThanOrEqual = checkTheNumberOfCharacters(tweet: tweetView.text)
+        let isLessThanOrEqual = validation(tweet: tweetView.text)
         // tweetViewの文字数をtextCountLabelに表示し、140文字をしきい値にして文字の色を変更するメソッドを呼び出す
         displayTextCountLabel(tweetable: isLessThanOrEqual)
     }
@@ -116,7 +116,7 @@ class TweetViewController: UIViewController, UITextViewDelegate {
     
     // tweetViewの文字数が140文字以下か検証するメソッド
     // （文字制限に対してユニットテストを行うために、文字数検証処理だけを切り出した）
-    func checkTheNumberOfCharacters(tweet: String) -> Bool{
+    func validation(tweet: String) -> Bool{
         let isLessThanOrEqual = tweet.count <= 140
         return isLessThanOrEqual
     }
