@@ -61,8 +61,10 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         // テキストビュー（ユーザー名とツイート）が更新された（変化した）ときの処理を呼び出す
         UserNameViewDidChange()
         tweetViewDidChange()
-        //
-        tweetViewCharactersCount()
+        // tweetViewの文字数が140文字以下か検証するメソッドを呼び出す
+        let isLessThanOrEqual = checkTheNumberOfCharacters(tweet: tweetView.text)
+        // tweetViewの文字数をtextCountLabelに表示し、140文字をしきい値にして文字の色を変更するメソッドを呼び出す
+        displayTextCountLabel(tweetable: isLessThanOrEqual)
         
         if tweetData.userName == "" && tweetData.tweet == "" && tweetData.date == "" {
             tweetButton.setTitle("ツイートする", for: .normal)
@@ -74,8 +76,10 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         // ユーザー名とツイートのプレースホルダを表示/非表示するメソッドを呼び出す
         UserNameViewDidChange()
         tweetViewDidChange()
+        // tweetViewの文字数が140文字以下か検証するメソッドを呼び出す
+        let isLessThanOrEqual = checkTheNumberOfCharacters(tweet: tweetView.text)
         // tweetViewの文字数をtextCountLabelに表示し、140文字をしきい値にして文字の色を変更するメソッドを呼び出す
-        tweetViewCharactersCount()
+        displayTextCountLabel(tweetable: isLessThanOrEqual)
     }
     
     // テーブルビューセルからツイート画面に遷移したときのみ行われる処理
@@ -110,14 +114,20 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    // tweetViewの文字数が140文字以下か検証するメソッド
+    // （文字制限に対してユニットテストを行うために、文字数検証処理だけを切り出した）
+    func checkTheNumberOfCharacters(tweet: String) -> Bool{
+        let isLessThanOrEqual = tweet.count <= 140
+        return isLessThanOrEqual
+    }
+ 
     // tweetViewの文字数をtextCountLabelに表示し、140文字をしきい値にして文字の色を変更するメソッド
-    func tweetViewCharactersCount() {
-        let NumberOfCharactersRemaining = 140 - tweetView.text.count
-        textCountLabel.text = String("残り \(NumberOfCharactersRemaining)文字")
-        if NumberOfCharactersRemaining < 0 {
-            textCountLabel.textColor = .red
-        } else {
+    func displayTextCountLabel(tweetable: Bool) {
+        textCountLabel.text = String("残り \(140 - tweetView.text.count)文字")
+        if tweetable {
             textCountLabel.textColor = .systemGray
+        } else {
+            textCountLabel.textColor = .red
         }
     }
     
@@ -133,3 +143,4 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         }
     }
 }
+
